@@ -12,6 +12,7 @@ public class ShoppingCart {
     public boolean addToCart(Product product) {
         if (!cart.contains(product)) {
             cart.add(product);
+            System.out.println(product.getName()+" added to cart");
             return true;
         } else {
             System.out.println(product.getName()+" is already added to cart.");
@@ -37,6 +38,7 @@ public class ShoppingCart {
         for (Product product : cart) {
             sum += product.getPrice();
         }
+//        System.out.println("Total amount "+sum);
         return sum;
     }
 

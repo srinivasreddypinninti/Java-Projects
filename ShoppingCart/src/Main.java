@@ -1,3 +1,6 @@
+import payment.CardPayment;
+import payment.Payment;
+
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -15,7 +18,8 @@ public class Main {
         System.out.println("4. Maggie");
         System.out.println("5. Show cart items");
         System.out.println("6. Show total amount");
-        System.out.println("7. Quit");
+        System.out.println("7. Make payment");
+        System.out.println("99. Quit");
         System.out.println("------------------------------");
 
         while (flag) {
@@ -45,6 +49,13 @@ public class Main {
                     System.out.println("Total price: " + itemsPrice);
                     break;
                 case 7:
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Enter card number");
+                    String cardNumber = sc.nextLine();
+                    Payment payment = new CardPayment(cardNumber);
+                    payment.makePayment(cart.getTotalItemsPrice());
+                    break;
+                case 99:
                     System.out.println("Quit from shopping.");
                     flag = false;
                     break;
